@@ -15,7 +15,7 @@ app.use(express.json())
 app.use('/api/auth', auths)
 app.use('/api', roles)
 // Rutas de profesor y cursos
-app.use('/api', teacher);
+app.use('/api', teacher)
 
 app.listen(PORT, () => {
   console.log('\n==================================================')

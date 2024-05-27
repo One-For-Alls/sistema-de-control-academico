@@ -1,4 +1,4 @@
-const { createAccessToken } = require('../libs/createAccessToken.js')
+const { createAccessToken } = require('../middlewares/createAccessToken.js')
 const prisma = require('../models/prisma')
 const bcrypt = require('bcrypt')
 
@@ -26,7 +26,7 @@ const serviceLogin = async (email, password) => {
     }
   }
 
-  const token = await createAccessToken({ id: users.id })
+  const token = await createAccessToken(user)
 
   return {
     status: 200,
@@ -58,15 +58,11 @@ const serviceRegister = async (email, password) => {
   })
 
   const { password: pass, ...user } = newUser
-  const token = await createAccessToken({ id: user.id })
 
   return {
     status: 201,
     message: 'usuario creado',
-    data: {
-      ...user,
-      token
-    }
+    data: { ...user }
   }
 }
 
