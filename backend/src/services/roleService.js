@@ -17,11 +17,11 @@ const getAllRolesService = async () => {
 }
 
 const getRolesServiceById = async ({ id }) => {
-  const roles = await prisma.roles.findUnique({
+  const role = await prisma.roles.findUnique({
     where: { id }
   })
 
-  if (!roles) {
+  if (!role) {
     return {
       status: 404,
       message: 'No existe ningun rol'
@@ -30,9 +30,10 @@ const getRolesServiceById = async ({ id }) => {
 
   return {
     status: 200,
-    data: roles
+    data: role
   }
 }
+
 const saveRolesService = async ({ name }) => {
   const roles = await prisma.roles.findUnique({
     where: { name }
@@ -54,20 +55,18 @@ const saveRolesService = async ({ name }) => {
 }
 
 const updateRolesServiceById = async ({ id, name }) => {
-  console.log(id)
-
-  const roles = await prisma.roles.findFirst({
+  const role = await prisma.roles.findFirst({
     where: { name }
   })
 
-  if (roles) {
+  if (role) {
     return {
       status: 404,
       message: 'El nombre del rol ya existe'
     }
   }
 
-  const updateRol = await prisma.roles.update({
+  const updateRol = await prisma.role.update({
     where: { id },
     data: { name }
   })
@@ -78,4 +77,32 @@ const updateRolesServiceById = async ({ id, name }) => {
   }
 }
 
-module.exports = { saveRolesService, getAllRolesService, getRolesServiceById, updateRolesServiceById }
+const deleteRolesServiceById = async ({ id }) => {
+  console.log(id)
+  const role = await prisma.roles.findUnique({
+    where: { id }
+  })
+
+  if (!role) {
+    return {
+      status: 404,
+      message: 'Rol no encontrado'
+    }
+  }
+
+  await prisma.roles.delete({
+    where: { id }
+  })
+  return {
+    status: 200,
+    message: 'Rol eliminado correctamente'
+  }
+}
+
+module.exports = {
+  saveRolesService,
+  getAllRolesService,
+  getRolesServiceById,
+  updateRolesServiceById,
+  deleteRolesServiceById
+}

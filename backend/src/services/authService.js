@@ -1,5 +1,5 @@
 const { createAccessToken } = require('../middlewares/createAccessToken.js')
-const prisma = require('../models/prisma')
+const prisma = require('../models/prisma.js')
 const bcrypt = require('bcrypt')
 
 // Servicio para iniciar sesión

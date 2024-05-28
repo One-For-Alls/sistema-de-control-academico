@@ -1,4 +1,10 @@
-const { saveRolesService, getAllRolesService, getRolesServiceById, updateRolesServiceById } = require('../services/roleService')
+const {
+  saveRolesService,
+  getAllRolesService,
+  getRolesServiceById,
+  updateRolesServiceById,
+  deleteRolesServiceById
+} = require('../services/roleService')
 
 const getAllRolesController = async (req, res) => {
   try {
@@ -40,7 +46,13 @@ const updateRolesByIdController = async (req, res) => {
   }
 }
 const deleteRolesByIdController = async (req, res) => {
-
+  const id = +req.params.id
+  try {
+    const roles = await deleteRolesServiceById({ id })
+    return res.status(roles.status).json({ message: roles.message, data: roles.data })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
 }
 
 module.exports = {

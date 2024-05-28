@@ -15,6 +15,6 @@ router
   .get('/roles/:id', getRolesByIdController)
   .post('/roles', verifyAccessToken, saveRolesController)
   .put('/roles/:id', verifyAccessToken, updateRolesByIdController)
-  .delete('/roles/:id', deleteRolesByIdController)
+  .delete('/roles/:id', verifyAccessToken, deleteRolesByIdController)
 
 module.exports = router
