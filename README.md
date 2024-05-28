@@ -2,7 +2,11 @@
 
 ### Industria o Rubro
 
-EdTech
+* EdTech
+
+### Nombre
+
+* EduLinker
 
 ### Descripción
 La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herramienta diseñada para mejorar la comunicación y el seguimiento del progreso académico entre estudiantes, padres y profesores. Los estudiantes pueden acceder a su historial académico y recibir retroalimentación sobre su rendimiento, los padres pueden seguir el progreso académico de sus hijos y recibir alertas sobre eventos importantes, y los profesores pueden evaluar el desempeño de los estudiantes y comunicarse con los padres sobre su progreso.
@@ -10,9 +14,12 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
 ### Tecnologías
 * Backend: Node.js, Express, Prisma, SQLite
 * Frontend: React, Vite, React Router DOM, Bootstrap
-* Tester: Jira
+* Tester: Testing manual
 * UI/UX: Figma
 * Comunicacion: Discord, Trello
+
+### Enlaces del Proyecto
+* Link Sitio Web 
 
 ### Colaboradores
 <table>
@@ -119,34 +126,6 @@ La Plataforma de Evaluación y Seguimiento del Rendimiento Escolar es una herram
     </tr>
   </tbody>
 </table>
-
-### Instalación y Uso
-
-1. Clona el repositorio
-```bash
-git clone https://github.com/No-Country/c18-16-n-node-react.git
-```
-2. Instala las dependencias
-```bash
-npm install
-```
-3. Configura las variables de entorno en un archivo .env en la raiz de la carpeta backend
-```bash
-PORT=3000
-DATABASE_URL="file:./dev.db"
-JWT_SECRET="tu_secreto_jwt"
-```
-4. Ejecuta la aplicación
-```bash
-npm run dev
-```
-
-### Uso
-1. Abre tu navegador y ve a http://localhost:5173 para acceder al frontend.
-2. Usa http://localhost:3000 para acceder al backend.
-
-### Enlaces del Proyecto
-* Link Sitio Web 
 
 ### Licencia
 Este proyecto está licenciado bajo la Licencia MIT - mira el archivo LICENSE para más detalles.
